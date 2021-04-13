@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dockerk8test
+  labels:
+    app: dockerk8test
+    version: "1.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dockerk8test
+    spec:
+      containers:
+      - name: dockerk8test
+        image: atocchi/dockerk8test
+        ports:
+        - name: http-server
+          containerPort: 8080
